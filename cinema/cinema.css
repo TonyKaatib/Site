@@ -1,0 +1,228 @@
+*
+{
+    box-sizing: border-box;
+}
+
+html,
+body
+{
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body
+{
+    background: #050505;
+    color: #f2f2f2;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+.cinema
+{
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 32px;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #202020 0%,
+            #111111 38%,
+            #070707 68%,
+            #020202 100%
+        );
+}
+
+.cinema::before
+{
+    content: "";
+
+    position: absolute;
+
+    width: 75vw;
+    height: 60vh;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.02) 40%,
+            transparent 72%
+        );
+
+    filter: blur(35px);
+
+    pointer-events: none;
+}
+
+.screen
+{
+    position: relative;
+
+    width: min(1400px, 96vw);
+
+    aspect-ratio: 16 / 9;
+
+    background: black;
+
+    border: 1px solid #333;
+
+    border-radius: 3px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 12px 30px rgba(0, 0, 0, 0.75),
+        0 30px 90px rgba(0, 0, 0, 0.9);
+
+    z-index: 1;
+}
+
+#player
+{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    background: black;
+}
+
+.error
+{
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 48px;
+
+    text-align: center;
+
+    background:
+        rgba(20, 20, 20, 0.92);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.75);
+}
+
+.error h1
+{
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    font-size: 2rem;
+
+    font-weight: 600;
+}
+
+.error p
+{
+    margin: 0;
+
+    color: #bdbdbd;
+
+    line-height: 1.6;
+
+    font-size: 1rem;
+}
+
+@media (min-width: 1600px)
+{
+    .screen
+    {
+        width: min(1600px, 94vw);
+    }
+}
+
+@media (max-width: 900px)
+{
+    .cinema
+    {
+        padding: 20px;
+    }
+
+    .screen
+    {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .cinema
+    {
+        min-height: 100vh;
+
+        padding: 8px;
+    }
+
+    .screen
+    {
+        width: 100%;
+
+        border-radius: 0;
+
+        box-shadow:
+            0 10px 40px rgba(0, 0, 0, 0.9);
+    }
+
+    .error
+    {
+        width: calc(100% - 24px);
+
+        padding: 30px 20px;
+    }
+
+    .error h1
+    {
+        font-size: 1.6rem;
+    }
+}
+
+.screen:fullscreen
+{
+    width: 100vw;
+    height: 100vh;
+
+    border: none;
+    border-radius: 0;
+}
+
+.screen:-webkit-full-screen
+{
+    width: 100vw;
+    height: 100vh;
+
+    border: none;
+    border-radius: 0;
+}
