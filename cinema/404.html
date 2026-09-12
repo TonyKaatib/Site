@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A redirecionar...</title>
+</head>
+
+<body>
+
+<script>
+const prefix = "/Site/cinema/";
+
+if (location.pathname.startsWith(prefix))
+{
+    const id =
+        location.pathname
+            .substring(prefix.length)
+            .split("/")[0];
+
+    if (/^[A-Za-z0-9_-]{11}$/.test(id))
+    {
+        location.replace(
+            "/Site/cinema/?v=" +
+            encodeURIComponent(id)
+        );
+    }
+}
+</script>
+
+<h1>404</h1>
+<p>Página não encontrada.</p>
+
+</body>
+</html>

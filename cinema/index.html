@@ -1,0 +1,104 @@
+<title>TonyKitaab's personalized cinema</title>
+<style>
+
+html, body
+{
+    margin: 0;
+    min-height: 100%;
+    background: #090909;
+    color: white;
+    font-family: sans-serif;
+}
+
+.cinema
+{
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #222 0%,
+            #0b0b0b 55%,
+            #000 100%
+        );
+}
+
+.screen
+{
+    width: min(1200px, 95vw);
+    aspect-ratio: 16 / 9;
+
+    box-shadow:
+        0 0 40px rgba(255,255,255,.08),
+        0 20px 80px black;
+}
+
+iframe
+{
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cinema">
+
+    <div class="screen">
+
+        <iframe
+            id="player"
+            allow="
+                autoplay;
+                encrypted-media;
+                picture-in-picture;
+                fullscreen
+            "
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(location.search);
+
+const id = params.get("v");
+
+if (id && /^[A-Za-z0-9_-]{11}$/.test(id))
+{
+    const player =
+        document.getElementById("player");
+
+    player.src =
+        "https://www.youtube.com/embed/" +
+        encodeURIComponent(id) +
+        "?rel=0";
+
+    history.replaceState(
+        null,
+        "",
+        "/Site/cinema/" + id
+    );
+}
+else
+{
+    document.body.innerHTML =
+        "<h1>Invalid video ID</h1>";
+}
+
+</script>
+
+</body>
+</html>
