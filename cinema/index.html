@@ -1,114 +1,46 @@
 <title>TonyKitaab's personalized cinema</title>
-
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
 
-<title>Cinema</title>
-<style>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
-html, body
-{
-    margin: 0;
-    min-height: 100%;
-    background: #090909;
-    color: white;
-    font-family: sans-serif;
-}
+    <title>Cinema</title>
 
-.cinema
-{
-    min-height: 100vh;
+    <script
+        src="./cinema.js"
+        defer>
+    </script>
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #222 0%,
-            #0b0b0b 55%,
-            #000 100%
-        );
-}
-
-.screen
-{
-    width: min(1200px, 95vw);
-    aspect-ratio: 16 / 9;
-
-    box-shadow:
-        0 0 40px rgba(255,255,255,.08),
-        0 20px 80px black;
-}
-
-iframe
-{
-    width: 100%;
-    height: 100%;
-
-    border: 0;
-}
-
-</style>
-
-<script src = "./cinema.js" defer> </script>
-	
 </head>
 
 <body>
 
-<div class="cinema">
+    <main class="cinema">
 
-    <div class="screen">
+        <div class="screen">
 
-        <iframe
-            id="player"
-            allow="
-                autoplay;
-                encrypted-media;
-                picture-in-picture;
-                fullscreen
-            "
-            allowfullscreen>
-        </iframe>
+            <iframe
+                id="player"
 
-    </div>
+                title="Cinema YouTube"
 
-</div>
+                allow="
+                    autoplay;
+                    encrypted-media;
+                    picture-in-picture;
+                    fullscreen
+                "
 
-<script>
+                allowfullscreen>
+            </iframe>
 
-/*const params = new URLSearchParams(location.search);
+        </div>
 
-const id = params.get("v");
-
-if (id && /^[A-Za-z0-9_-]{11}$/.test(id))
-{
-    const player =
-        document.getElementById("player");
-
-    player.src =
-        "https://www.youtube.com/embed/" +
-        encodeURIComponent(id) +
-        "?rel=0";
-
-    history.replaceState(
-        null,
-        "",
-        "/Site/cinema/" + id
-    );
-}
-else
-{
-    document.body.innerHTML =
-        "<h1>Invalid video ID</h1>";
-}
-
-</script>*/
+    </main>
 
 </body>
 </html>
